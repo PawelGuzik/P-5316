@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MidRate>
+    <MidAsk>3.8785</MidAsk>
+    <MidBid>3.8016600000000005</MidBid>
+    <EffectiveDateStart>2019-03-28</EffectiveDateStart>
+    <EffectiveDateEnd>2019-04-03</EffectiveDateEnd>
+    <Table>C</Table>
+    <Currency>frank szwajcarski</Currency>
+    <Code>CHF</Code>
+</MidRate>
