@@ -14,9 +14,12 @@ public class Rates {
 	private double askMid;
 	private double bidMid;
 
+
 	public Rates() {
 
 	}
+	
+
 
 	public void calculateAskMid() {
 		double sum = 0.0;

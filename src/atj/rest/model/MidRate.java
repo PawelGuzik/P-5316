@@ -9,11 +9,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "MidRate")
 public class MidRate {
 
+	@XmlElement(name = "MidAskBid")
+	private String midAskBid;
+	
 	@XmlElement(name = "MidAsk")
-	private double midAsk;
+	private String midAsk;
 
 	@XmlElement(name = "MidBid")
-	private double midBid;
+	private String midBid;
 
 	@XmlElement(name = "EffectiveDateStart")
 	private String effectiveDateStart;
@@ -29,13 +32,16 @@ public class MidRate {
 
 	@XmlElement(name = "Code")
 	private String code;
+	
+
 
 	public MidRate() {
 
 	}
 	
 	public String toString() {
-		return "MidAsk: " + midAsk + ",\n"
+		return  "MidAskBid: " + midAskBid + ",\n"
+				+ "MidAsk: " + midAsk + ",\n"
 				+"MidBid: " + midBid + ",\n"
 				+ "EffectiveDateStart: " + effectiveDateStart + ",\n"
 				+ "EffectiveDateEnd: " + effectiveDateEnd + ",\n"
@@ -54,6 +60,7 @@ public class MidRate {
 		"	</head>" + "\n" + 
 		"	<body>" + "\n" +
 		"		<h1>Medium rate</h1>" +
+		"			<p>MidAskBid: " + midAskBid + "</p>" + "\n" +
 		"			<p>MidAsk: " + midAsk + "</p>" + "\n" + 
 		"			<p>MidBid: " + midBid + "</p>" + "\n" + 
 		"			<p>EffectiveDateStart: " + effectiveDateStart + "</p>" + "\n" + 
@@ -69,28 +76,29 @@ public class MidRate {
 	public MidRate(double midAsk, double midBid, String effectiveDateStart, String effectiveDateEnd, String table,
 			String currency, String code) {
 		super();
-		this.midAsk = midAsk;
-		this.midBid = midBid;
+		this.midAsk = String.format("%.4f", midAsk);
+		this.midBid = String.format("%.4f", midBid);
 		this.effectiveDateStart = effectiveDateStart;
 		this.effectiveDateEnd = effectiveDateEnd;
 		this.table = table;
 		this.currency = currency;
 		this.code = code;
+		this.midAskBid = String.format("%.4f", (midAsk + midBid)/2.0);
 	}
 
-	public double getMidAsk() {
+	public String getMidAsk() {
 		return midAsk;
 	}
 
-	public void setMidAsk(double midAsk) {
+	public void setMidAsk(String midAsk) {
 		this.midAsk = midAsk;
 	}
 
-	public double getMidBid() {
+	public String getMidBid() {
 		return midBid;
 	}
 
-	public void setMidBid(double midBid) {
+	public void setMidBid(String midBid) {
 		this.midBid = midBid;
 	}
 
